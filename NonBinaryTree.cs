@@ -6,10 +6,24 @@ namespace DataStructures
 {
     public class NonBinaryTree<T>
     {
-        NonBinaryTreeNode<T> root;
-        public NonBinaryTree(T value)
+        T value;
+        List<NonBinaryTree<T>> branches;
+        public NonBinaryTree(T rootValue)
         {
-            root = new NonBinaryTreeNode<T>(value);
+            value = rootValue;
+            branches = new List<NonBinaryTree<T>>();
+        }
+        public void Add(T newValue)
+        {
+            NonBinaryTree<T> newBranch = new NonBinaryTree<T>(newValue);
+            branches.Add(newBranch);
+        }
+        public List<NonBinaryTree<T>> Branches
+        {
+            get
+            {
+                return branches;
+            }
         }
     }
 }
